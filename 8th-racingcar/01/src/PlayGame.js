@@ -35,5 +35,7 @@ export default class PlayAllRound {
 
       Console.print('\n');
     });
+
+    return PlayAllRound.cars;
   }
 }
