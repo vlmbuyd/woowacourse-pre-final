@@ -5,7 +5,7 @@ export const MESSAGE = {
 
   ERROR_EMPTY_INPUT: '[ERROR] 값이 비어있습니다.',
   ERROR_NOT_NUMBER_INPUT: '[ERROR] 숫자가 아닙니다.',
-  ERROR_OUT_OF_RANGE_INPUT: '[ERROR] 0부터 5 사이의 숫자가 아닙니다.',
+  ERROR_OUT_OF_RANGE_INPUT: '[ERROR] 자동차 이름은 5자 이하만 가능합니다.',
 };
 
 export const SEPERATOR = {
