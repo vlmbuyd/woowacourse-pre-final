@@ -6,8 +6,16 @@ export const INPUT_MSG = Object.freeze({
 
 export const OUTPUT_MSG = Object.freeze({
   PURCHASE_AMOUNT: (amount) => `\n${amount}개를 구매했습니다.`,
-  WINNING_STATS: '당첨 통계\n---\n',
   PROFIT_RATE: (rate) => `총 수익률은 ${rate}%입니다.`,
+});
+
+export const WINNING_STATS = Object.freeze({
+  TITLE: '\n당첨 통계\n---',
+  3: (amount) => `3개 일치 (5,000원) - ${amount}개`,
+  4: (amount) => `4개 일치 (50,000원) - ${amount}개`,
+  5: (amount) => `5개 일치 (1,500,000원) - ${amount}개`,
+  BONUS: (amount) => `5개 일치, 보너스 볼 일치 (30,000,000원) - ${amount}개`,
+  6: (amount) => `6개 일치 (5,000,000,000원) - ${amount}개`,
 });
 
 export const ERROR_MSG = Object.freeze({
