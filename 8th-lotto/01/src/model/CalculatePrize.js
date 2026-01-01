@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { OUTPUT_MSG, WINNING_STATS } from '../constants.js';
+import { GAME_RULE, OUTPUT_MSG, WINNING_STATS } from '../constants.js';
 
 export default class CalculatePrize {
   constructor(lottos, winningNum, bonusNum) {
@@ -51,6 +51,25 @@ export default class CalculatePrize {
     return winningPrize;
   }
 
+  calaulateProfitRate(winningStats) {
+    const winningPrizeMap = {
+      3: 5000,
+      4: 50000,
+      5: 1500000,
+      BONUS: 30000000,
+      6: 2000000000,
+    };
+
+    const purchaseAmount = this.lottos.length;
+
+    let totalWinningPrize = 0;
+    Object.keys(winningStats).forEach((key) => {
+      totalWinningPrize += winningPrizeMap[key] * winningStats[key];
+    });
+
+    return (totalWinningPrize / (purchaseAmount * GAME_RULE.PRICE_UNIT)) * 100;
+  }
+
   printWinningStats(winningStats) {
     [3, 4, 5, 'BONUS', 6].forEach((key) => {
       const amount = winningStats[key];
@@ -61,7 +80,12 @@ export default class CalculatePrize {
   run() {
     Console.print(WINNING_STATS.TITLE);
 
+    // 당첨 내역 계산 및 출력
     const winningStats = this.calculateWinningStats();
     this.printWinningStats(winningStats);
+
+    // 수익률 계산 및 출력
+    const profitRate = this.calaulateProfitRate(winningStats);
+    Console.print(OUTPUT_MSG.PROFIT_RATE(profitRate));
   }
 }
