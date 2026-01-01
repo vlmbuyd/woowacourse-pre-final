@@ -2,6 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 import { INPUT_MSG } from '../constants.js';
 import Validator from '../utils/Validator.js';
 
+// TODO: 반복 로직 리팩토링 필요
 export default class InputView {
   static async readPurchaseAmount() {
     try {
@@ -12,8 +13,8 @@ export default class InputView {
 
       return Number(purchaseAmount);
     } catch (err) {
-      Console.print(err);
-      InputView.readPurchaseAmount();
+      Console.print(err.message);
+      return InputView.readPurchaseAmount();
     }
   }
 

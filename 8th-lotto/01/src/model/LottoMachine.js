@@ -25,15 +25,17 @@ export default class LottoMachine {
   }
 
   printResult(lottos) {
+    let printResult = '';
+
     lottos.forEach((lotto) => {
-      Console.print(lotto.getNumbers());
+      printResult += `[${lotto.getNumbers().join(', ')}]` + '\n';
     });
-    Console.print('\n');
+
+    Console.print(OUTPUT_MSG.PURCHASE_AMOUNT(this.purchaseAmount));
+    Console.print(printResult);
   }
 
   run() {
-    Console.print(OUTPUT_MSG.PURCHASE_AMOUNT(this.purchaseAmount));
-
     const lottos = this.issueLottos();
     this.printResult(lottos);
 
