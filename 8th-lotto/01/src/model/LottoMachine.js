@@ -36,5 +36,7 @@ export default class LottoMachine {
 
     const lottos = this.issueLottos();
     this.printResult(lottos);
+
+    return lottos;
   }
 }
