@@ -4,8 +4,8 @@ import { GAME_RULE, OUTPUT_MSG, WINNING_STATS } from '../constants.js';
 export default class CalculatePrize {
   constructor(lottos, winningNum, bonusNum) {
     this.lottos = lottos;
-    this.winningNum = winningNum.map(Number);
-    this.bonusNum = bonusNum;
+    this.winningNum = winningNum.split(',').map(Number);
+    this.bonusNum = Number(bonusNum);
   }
 
   matchWinningPrize(winningPrize, arrLength, lottoNumbers) {

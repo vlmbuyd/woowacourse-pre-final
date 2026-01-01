@@ -1,6 +1,20 @@
-import { ERROR_MSG, GAME_RULE } from '../constants.js';
+import { ERROR_MSG, GAME_RULE, VALIDATION_KEY } from '../constants.js';
+
+const validators = {
+  [VALIDATION_KEY.PURCHASE_AMOUNT]: (value) =>
+    Validator.validatePurchaseAmount(value),
+  [VALIDATION_KEY.WINNING_NUMS]: (value) =>
+    Validator.validateWinningNums(value),
+  [VALIDATION_KEY.BONUS_NUMS]: (value, args) =>
+    Validator.validateBonusNum(value, args),
+};
 
 export default class Validator {
+  static validate(key, inputValue, args) {
+    const validator = validators[key];
+    if (validator) validator(inputValue, args);
+  }
+
   static validatePurchaseAmount(purchaseAmount) {
     if (Number(purchaseAmount) % GAME_RULE.PRICE_UNIT !== 0) {
       throw new Error(`${ERROR_MSG.ERROR_PREFIX}${ERROR_MSG.INVALID_UNIT}`);
@@ -34,7 +48,9 @@ export default class Validator {
   }
 
   static validateBonusNum(bonusNum, winningNum) {
-    const set = new Set([...winningNum, ...bonusNum]);
+    const winningNumList = winningNum.split(',');
+
+    const set = new Set([...winningNumList, ...bonusNum]);
     const filteredArr = [...set];
 
     // 당첨 번호 중 중복된 숫자가 있을 때
