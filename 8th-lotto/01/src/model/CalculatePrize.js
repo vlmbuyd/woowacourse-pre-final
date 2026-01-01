@@ -86,6 +86,6 @@ export default class CalculatePrize {
 
     // 수익률 계산 및 출력
     const profitRate = this.calaulateProfitRate(winningStats);
-    Console.print(OUTPUT_MSG.PROFIT_RATE(profitRate));
+    Console.print(OUTPUT_MSG.PROFIT_RATE(profitRate.toFixed(1)));
   }
 }
