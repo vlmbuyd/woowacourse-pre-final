@@ -16,11 +16,15 @@ Q. 종료\n`,
 });
 
 export const ERROR_MSG = Object.freeze({
-  PREFIX: '[ERROR] ',
+  PREFIX: '[ERROR]',
 });
 
-export const VALIDATION_KEY = Object.freeze({
-  SELECTION_PROMPT: 'selectionPrompt',
+export const ATTENDANCE_MODE = Object.freeze({
+  1: 'checkAttendance',
+  2: 'editAttendance',
+  3: 'crewAttendanceHistory',
+  4: 'riskOfExpulsion',
+  Q: 'quit',
 });
 
 export const ATTENDANCE_STATUS = Object.freeze({
