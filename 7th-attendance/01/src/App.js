@@ -12,6 +12,7 @@ class App {
         MODE = mode;
 
         const attendanceRecords = CSVParser.getAttendanceRecord();
+        DataParser.determineAttendanceStatus(attendanceRecords);
       } catch (err) {
         Console.print(err.message);
         return;
