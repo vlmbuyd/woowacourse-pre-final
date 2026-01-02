@@ -1,7 +1,6 @@
-import * as fs from 'fs';
-import path from 'path';
 import { Console } from '@woowacourse/mission-utils';
 import InputView from './view/InputView.js';
+import { CSVParser, DataParser } from './utils/Parser.js';
 
 class App {
   async run() {
@@ -11,6 +10,8 @@ class App {
       try {
         const mode = await InputView.selectFunc();
         MODE = mode;
+
+        const attendanceRecords = CSVParser.getAttendanceRecord();
       } catch (err) {
         Console.print(err.message);
         return;
