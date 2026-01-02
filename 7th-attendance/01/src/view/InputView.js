@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { ATTENDANCE_MODE, INPUT_MSG, VALIDATION_KEY } from '../constants.js';
+import { ATTENDANCE_MODE, INPUT_MSG } from '../constants.js';
 import Validator from '../utils/Validator.js';
 
 const inputs = {

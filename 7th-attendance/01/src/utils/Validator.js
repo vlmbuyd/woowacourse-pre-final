@@ -2,7 +2,7 @@ import { ERROR_MSG } from '../constants.js';
 
 export default class Validator {
   static validateSelectionPrompt(mode) {
-    if (!['1', '2', '3', '4', 'Q'].includes(mode)) {
+    if (!['1', '2', '3', '4', 'q'].includes(mode)) {
       throw new Error(`${ERROR_MSG.PREFIX} 잘못된 값을 입력하였습니다.`);
     }
   }

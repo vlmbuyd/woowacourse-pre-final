@@ -24,7 +24,7 @@ export const ATTENDANCE_MODE = Object.freeze({
   2: 'editAttendance',
   3: 'crewAttendanceHistory',
   4: 'riskOfExpulsion',
-  Q: 'quit',
+  q: 'quit',
 });
 
 export const ATTENDANCE_STATUS = Object.freeze({
